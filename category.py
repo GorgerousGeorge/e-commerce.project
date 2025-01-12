@@ -3,9 +3,13 @@ class Category:
     name = str
     description = str
     products = list
+    count_category = 0
+    count_of_goods = 0
 
     def __init__(self, name, description, products):
         """Метод для инициализации экземпляра класса Category. Задаем значения атрибутам экземпляра."""
         self.name = name
         self.description = description
         self.products = products
+        count_category += 1
+        count_of_goods += len(products)
