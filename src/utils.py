@@ -1,8 +1,8 @@
-import os
 import json
+import os
 
-from src.product import Product
 from src.category import Category
+from src.product import Product
 
 
 def json_reader(path: str):
@@ -21,3 +21,6 @@ def object_creator(data):
         category["products"] = products
         categories.append(Category(**category))
     return categories
+
+def object_creator_from_json(path:str):
+    return object_creator(json_reader(path))
