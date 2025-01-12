@@ -11,5 +11,5 @@ class Category:
         self.name = name
         self.description = description
         self.products = products
-        count_category += 1
-        count_of_goods += len(products)
+        Category.count_category += 1
+        Category.count_of_goods += len(products)
