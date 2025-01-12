@@ -14,7 +14,7 @@ def json_reader(path: str):
 
 
 def object_creator(data):
-    """Создает экземпляры классов Category и Product на основании поданных на вход данных"""
+    """Создает экземпляры классов Category и Product из поданных на вход данных"""
     categories = []
     for category in data:
         products = []
