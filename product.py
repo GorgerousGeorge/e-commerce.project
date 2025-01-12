@@ -6,7 +6,7 @@ class Product:
     quantity = int
 
     def __init__(self, name, description, price, quantity):
-        """Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
+        """Метод для инициализации экземпляра класса Product. Задаем значения атрибутам экземпляра."""
         self.name = name
         self.description = description
         self.price = price
