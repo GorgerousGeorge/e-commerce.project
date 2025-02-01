@@ -15,10 +15,10 @@ def test_add_product(second_category, product):
     second_category.add_product(product)
     assert second_category.count_of_goods == 3
     assert second_category.products == ('everything, 69.77 руб. Остаток: 13 шт.\n'
-                                                  'nothing, 100 руб. Остаток: 34435353 шт.\n'
-                                                  'something, 125.5 руб. Остаток: 666 шт.\n')
+                                        'nothing, 100 руб. Остаток: 34435353 шт.\n'
+                                        'something, 125.5 руб. Остаток: 666 шт.\n')
 
 
 def test_products_getter(second_category):
     assert second_category.products == ('everything, 69.77 руб. Остаток: 13 шт.\n'
-                                                  'nothing, 100 руб. Остаток: 34435353 шт.\n')
+                                        'nothing, 100 руб. Остаток: 34435353 шт.\n')

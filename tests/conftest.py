@@ -21,3 +21,8 @@ def second_category():
 @pytest.fixture
 def product():
     return Product("something", "useful tool for testing", 125.50, 666)
+
+
+@pytest.fixture
+def product_in_dict():
+    return {"name": "everything", "description": "everything everywhere and at once", "price": 69.77, "quantity": 13"}

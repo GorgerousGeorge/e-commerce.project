@@ -13,15 +13,17 @@ class Product:
         self.quantity = quantity
 
     @classmethod
-    def new_product(cls, name, description, price, quantity, list_of_products: list):
-        """Метод для создания новых объектов класса Product. На вход необходимо подать словарь с параметрами товаров"""
+    def new_product(cls, dict_of_product, list_of_products: list):
+        """Метод для создания новых объектов класса Product. На вход необходимо подать словарь с параметрами товаров:
+        name, description, price, quantity, а также текущий список товаров (для избежания дублирования позиций)"""
         for product in list_of_products:
-            if name == product:
-                product.quantity += quantity
-                if product.price < price:
-                    product.price = price
+            if dict_of_product["name"] == product:
+                product.quantity += dict_of_product["quantity"]
+                if product.price < dict_of_product["price"]:
+                    product.price = dict_of_product["price"]
                 return product
-        return cls(name, description, price, quantity)
+        return cls(dict_of_product["name"], dict_of_product["description"], dict_of_product["price"],
+                   dict_of_product["quantity"])
 
     @property
     def price(self):
