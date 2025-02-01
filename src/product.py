@@ -9,7 +9,7 @@ class Product:
         """Метод для инициализации экземпляра класса Product. Задаем значения атрибутам экземпляра."""
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
 
     @classmethod
@@ -22,3 +22,22 @@ class Product:
                     product.price = price
                 return product
         return cls(name, description, price, quantity)
+
+    @property
+    def price(self):
+        """Геттер для аттрибута price"""
+        return self.__price
+
+    @price.setter
+    def price(self, new_price: int):
+        """Сеттер для изменения аттрибута price"""
+        if new_price <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+            return
+        if new_price < self.__price:
+            print("Вы собираетесь уменьшить цену на товар. Для подтверждения нажмите Y \n")
+            confirmation = input()
+            if confirmation.lower() != "y":
+                print("Цена не изменилась")
+                return
+        self.__price = new_price
