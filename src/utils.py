@@ -24,6 +24,7 @@ def object_creator(data):
         categories.append(Category(**category))
     return categories
 
+
 def object_creator_from_json(path:str):
     """Считывает данные из json-файла и создает объекты классов Category и Product"""
     return object_creator(json_reader(path))

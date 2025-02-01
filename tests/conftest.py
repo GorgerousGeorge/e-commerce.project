@@ -19,6 +19,13 @@ def second_category():
 
 
 @pytest.fixture
+def third_category():
+    return Category("some category", "category with something", [
+        Product("everything", "everything everywhere and at once", 69.77, 13),
+        Product("nothing", "respectfully accepting donations", 100, 34435353)])
+
+
+@pytest.fixture
 def product():
     return Product("something", "useful tool for testing", 125.50, 666)
 

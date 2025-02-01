@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 class Category:
     """Класс для категорий товаров"""
     name = str
@@ -27,7 +28,6 @@ class Category:
         for product in self.__products:
             product_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return product_str
-
 
     @property
     def products_in_list(self):
