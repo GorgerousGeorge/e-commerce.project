@@ -13,5 +13,12 @@ class Product:
         self.quantity = quantity
 
     @classmethod
-    def new_product(cls):
-        """"""
+    def new_product(cls, name, description, price, quantity, list_of_products: list):
+        """Метод для создания новых объектов класса Product. На вход необходимо подать словарь с параметрами товаров"""
+        for product in list_of_products:
+            if name == product:
+                product.quantity += quantity
+                if product.price < price:
+                    product.price = price
+                return product
+        return cls(name, description, price, quantity)
