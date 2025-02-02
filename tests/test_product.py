@@ -30,3 +30,6 @@ def test_price(capsys, product):
 
 def test_magick_str(product):
     assert str(product) == "something, 125.50 руб. Остаток: 666 шт."
+
+def test_magick_add(product, second_product):
+    assert product + second_product == 84490.01

@@ -29,6 +29,10 @@ def third_category():
 def product():
     return Product("something", "useful tool for testing", 125.50, 666)
 
+@pytest.fixture
+def second_product():
+    return Product("everything", "everything everywhere and at once", 69.77, 13)
+
 
 @pytest.fixture
 def product_in_dict():

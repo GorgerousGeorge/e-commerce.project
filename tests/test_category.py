@@ -26,3 +26,7 @@ def test_products_getter(second_category):
 
 def test_magick_str_cat(first_category):
     assert str(first_category) == "test, количество продуктов: 667 шт."
+
+
+def test_magick_add_cat(first_category, second_category):
+    assert first_category + second_category == 3453619790
