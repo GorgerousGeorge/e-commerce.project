@@ -17,6 +17,7 @@ class Category:
         self.__products = list(products)
         Category.count_category += 1
         Category.count_of_goods += len(products)
+        self.total_price = 0
         for product in self.__products:
             self.total_price += (product.quantity * product.price)
 
