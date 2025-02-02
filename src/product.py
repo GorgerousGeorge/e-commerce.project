@@ -12,10 +12,8 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-
     def __str__(self):
         return f"{self.name}, {self.price}. Остаток: {self.quantity} шт."
-
 
     @classmethod
     def new_product(cls, dict_of_product, list_of_products: list = []):

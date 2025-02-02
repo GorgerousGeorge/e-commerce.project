@@ -3,11 +3,12 @@ from src.product import Product
 
 class Category:
     """Класс для категорий товаров"""
-    name = str
-    description = str
-    products = list
+    name: str
+    description: str
+    products: list
     count_category = 0
     count_of_goods = 0
+    total_price: float
 
     def __init__(self, name, description, products):
         """Метод для инициализации экземпляра класса Category. Задаем значения атрибутам экземпляра."""
@@ -16,6 +17,17 @@ class Category:
         self.__products = list(products)
         Category.count_category += 1
         Category.count_of_goods += len(products)
+        for product in self.__products:
+            self.total_price += (product.quantity * product.price)
+
+    def __str__(self):
+        total_goods = 0
+        for product in self.__products:
+            total_goods += product.quantity
+        return f"{self.name}, количество продуктов: {total_goods} шт."
+
+    def __add__(self, other):
+        return self.total_price + other.total_price
 
     def add_product(self, new_product: Product):
         """Метод для записи новых объектов класса Product в атрибут Category.products"""
