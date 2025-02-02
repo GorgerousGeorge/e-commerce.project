@@ -1,6 +1,3 @@
-from src.product import Product
-from src.category import Category
-
 class CategoryIterator:
     """Вспомогательный класс для перебора товаров одной категории. Принимает на вход объект класса Category и
     производит итерацию по товарам, которые хранятся в данной категории. Каждая новая итерация возвращает очередной
@@ -11,6 +8,7 @@ class CategoryIterator:
         self.index = 0
 
     def __iter__(self):
+        self.index = 0
         return self
 
     def __next__(self):
