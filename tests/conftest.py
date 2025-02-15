@@ -2,6 +2,7 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.category_iterator import CategoryIterator
 
 
 @pytest.fixture
@@ -31,6 +32,11 @@ def product():
 
 
 @pytest.fixture
+def second_product():
+    return Product("everything", "everything everywhere and at once", 69.77, 13)
+
+
+@pytest.fixture
 def product_in_dict():
     return {"name": "everything", "description": "everything everywhere and at once", "price": 69.77, "quantity": 13}
 
@@ -48,3 +54,8 @@ def second_list_products():
 @pytest.fixture
 def third_list_products():
     return [Product("everything", "everything you desire", 10.50, 1)]
+
+
+@pytest.fixture
+def category_iterator(first_category):
+    return CategoryIterator(first_category)
