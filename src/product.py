@@ -1,7 +1,8 @@
 from src.baseproduct import BaseProduct
+from src.mixin_for_print import Mixinforprint
 
 
-class Product(BaseProduct):
+class Product(BaseProduct, Mixinforprint):
     """Класс для описания товаров. Также указаны цена и имеющееся в наличии количество"""
 
     def __init__(self, name, description, price, quantity):
@@ -10,6 +11,7 @@ class Product(BaseProduct):
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f"{self.name}, {self.price:.2f} руб. Остаток: {self.quantity} шт."
