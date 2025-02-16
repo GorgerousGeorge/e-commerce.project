@@ -3,6 +3,8 @@ import pytest
 from src.category import Category
 from src.product import Product
 from src.category_iterator import CategoryIterator
+from src.smartphone import Smartphone
+from src.lawngrass import LawnGrass
 
 
 @pytest.fixture
@@ -59,3 +61,27 @@ def third_list_products():
 @pytest.fixture
 def category_iterator(first_category):
     return CategoryIterator(first_category)
+
+
+@pytest.fixture
+def smartphone_1():
+    return Smartphone("Huawei Z230", "телефон эконом-сегмента", 5000, 315, 6500,
+                      "Z230", 512, "Черный")
+
+
+@pytest.fixture
+def smartphone_2():
+    return Smartphone("Samsung X15A", "телефон обычный", 16500, 220, 13000,
+                      "X15A", 2048, "Серебристый")
+
+
+@pytest.fixture
+def lawngrass_1():
+    return LawnGrass("Садовая", "газонная трава обычная", 2500, 1000,
+                     "Беларусь", 4, "Зеленый")
+
+
+@pytest.fixture
+def lawngrass_2():
+    return LawnGrass("Gardenfloor", "газонная трава быстрорастущая", 3000, 500,
+                     "Ирландия",2, "Салатовый")
