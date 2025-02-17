@@ -45,3 +45,11 @@ def test_category_iterator(category_iterator):
 def test_add_product_incorrect(third_category, second_category):
     with pytest.raises(TypeError):
         third_category.add_product(second_category)
+
+
+def test_average_price(first_category):
+    assert first_category.average_price() == 5000062.745
+
+
+def test_average_price_empty(empty_category):
+    assert empty_category.average_price() == 0

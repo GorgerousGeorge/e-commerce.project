@@ -1,4 +1,5 @@
 from src.product import Product
+import pytest
 
 
 def test_product_init(product):
@@ -34,3 +35,8 @@ def test_magick_str(product):
 
 def test_magick_add(product, second_product):
     assert product + second_product == 84490.01
+
+
+def test_init_product_without_quantity():
+    with pytest.raises(ValueError):
+        Product("nothing", "absolutely nothing", 91, 0)

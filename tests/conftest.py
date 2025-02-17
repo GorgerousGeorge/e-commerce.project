@@ -84,4 +84,19 @@ def lawngrass_1():
 @pytest.fixture
 def lawngrass_2():
     return LawnGrass("Gardenfloor", "газонная трава быстрорастущая", 3000, 500,
-                     "Ирландия",2, "Салатовый")
+                     "Ирландия", 2, "Салатовый")
+
+
+@pytest.fixture
+def product():
+    return Product("something", "useful tool for testing", 125.50, 666)
+
+
+@pytest.fixture
+def product_with_zero_quantity():
+    return Product("nothing", "absolutely nothing", 91, 0)
+
+
+@pytest.fixture
+def empty_category():
+    return Category("empty category", "category without anithing", [])

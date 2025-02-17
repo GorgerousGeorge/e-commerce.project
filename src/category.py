@@ -1,4 +1,5 @@
 from src.product import Product
+from src.zero_cost import ZeroCostException
 
 
 class Category:
@@ -33,9 +34,19 @@ class Category:
     def add_product(self, new_product: Product):
         """Метод для записи новых объектов класса Product в атрибут Category.products"""
         if isinstance(new_product, Product):
-            self.__products.append(new_product)
-            Category.count_of_goods += 1
-        else: raise TypeError
+            try:
+                if new_product.quantity == 0:
+                    raise ZeroCostException("Товар с нулевым количеством не может быть добавлен")
+            except ZeroCostException as exc:
+                print(str(exc))
+            else:
+                self.__products.append(new_product)
+                Category.count_of_goods += 1
+                print("Товар успешно добавлен в категорию")
+            finally:
+                print("Обработка добавления товара завершена")
+        else:
+            raise TypeError
 
     @property
     def products(self):
@@ -47,3 +58,10 @@ class Category:
     @property
     def products_in_list(self):
         return self.__products
+
+    def average_price(self):
+        """Метод для подсчета средней цены всех товаров категории"""
+        try:
+            return sum([product.price for product in self.__products]) / len(self.__products)
+        except ZeroDivisionError:
+            return 0
