@@ -50,6 +50,7 @@ class Category:
         return self.__products
 
     def average_price(self):
+        """Метод для подсчета средней цены всех товаров категории"""
         try:
             return sum([product.price for product in self.__products]) / len(self.__products)
         except ZeroDivisionError:
