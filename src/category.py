@@ -35,7 +35,8 @@ class Category:
         if isinstance(new_product, Product):
             self.__products.append(new_product)
             Category.count_of_goods += 1
-        else: raise TypeError
+        else:
+            raise TypeError
 
     @property
     def products(self):
@@ -47,3 +48,9 @@ class Category:
     @property
     def products_in_list(self):
         return self.__products
+
+    def average_price(self):
+        try:
+            return sum([product.price for product in self.__products]) / len(self.__products)
+        except ZeroDivisionError:
+            return 0
