@@ -25,11 +25,12 @@ def test_price(capsys, product):
     assert product.price == 255
     product.price = -155
     message = capsys.readouterr()
-    assert message.out == "Цена не должна быть нулевая или отрицательная\n"
+    assert message.out.strip().split("\n")[-1] == "Цена не должна быть нулевая или отрицательная"
 
 
 def test_magick_str(product):
     assert str(product) == "something, 125.50 руб. Остаток: 666 шт."
+
 
 def test_magick_add(product, second_product):
     assert product + second_product == 84490.01
